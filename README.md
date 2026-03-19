@@ -2,6 +2,10 @@
 
 Простой Docker-контейнер для backup указанной директории в `tar.gz` архивы с cron-расписанием и compact retention-конфигом.
 
+Репозиторий: [github.com/astrot1988/folder_simple_backup](https://github.com/astrot1988/folder_simple_backup)
+
+Контейнер: [ghcr.io/astrot1988/folder_simple_backup](https://github.com/astrot1988/folder_simple_backup/pkgs/container/folder_simple_backup)
+
 ## Что умеет
 
 - По расписанию архивирует директорию через `tar`
@@ -16,6 +20,16 @@
 cp .env.example .env
 mkdir -p source backups
 docker compose up -d --build
+```
+
+## Docker Registry
+
+После пуша в `main` GitHub Actions собирает и публикует образ в GHCR.
+
+Пример использования:
+
+```bash
+docker pull ghcr.io/astrot1988/folder_simple_backup:latest
 ```
 
 ## Основные настройки
