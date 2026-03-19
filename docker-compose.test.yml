@@ -1,0 +1,18 @@
+services:
+  folder-backup:
+    build: .
+    container_name: folder_simple_backup_test
+    restart: unless-stopped
+    environment:
+      SOURCE_DIR: /source
+      CRON: "* * * * *"
+      TZ: UTC
+      BACKUP_DIR: /backups
+      KEEP_HOURLY: 3
+      KEEP_DAILY: 2
+      KEEP_WEEKLY: 2
+      KEEP_MONTHLY: 2
+      KEEP_YEARLY: ""
+    volumes:
+      - ./testdata/source:/source:ro
+      - ./test_backups:/backups

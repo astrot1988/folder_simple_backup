@@ -1,0 +1,10 @@
+services:
+  folder-backup:
+    build: .
+    container_name: folder_simple_backup
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ${SOURCE_PATH:-./source}:${SOURCE_DIR:-/source}:ro
+      - ./backups:${BACKUP_DIR:-/backups}
